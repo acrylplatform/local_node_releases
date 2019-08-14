@@ -9,13 +9,17 @@ install:
   - docker build -t acrylplatform/acryl_local_node_rpm .
 
 script:
-  - docker run -v /$(pwd)/.build:/result acrylplatform/acryl_local_node_rpm
+  - docker run -v $(pwd)/.build:/result acrylplatform/acryl_local_node_rpm
+
+before_deploy:
+  - export PKG_FILES=$(ls -d $(pwd)/.build/*.rpm)
+  - echo "Found '$PKG_FILES' for release"
 
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file_glob: true
-  file: /$(pwd)/.build/acryl-node-binary*.rpm
+  file: $PKG_FILES
   skip_cleanup: true
   draft: true
 
