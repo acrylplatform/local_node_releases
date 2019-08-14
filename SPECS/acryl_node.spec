@@ -3,6 +3,7 @@
 %define service_user acryl_runner
 %define service_group acryl_runner
 %define service_home /opt/acryl
+%define release_date %(date "+%a %b %e %Y")
 
 Name:       acryl-node-binary
 Version:    1
@@ -41,21 +42,21 @@ exit 0
 %install
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__install} -d -o %{service_user} -g %{service_group} %{buildroot}%{service_home}
-%{__install} -m755 %SOURCE0 %{buildroot}/opt/acryl/acryl.jar
+%{__install} -m755 %SOURCE0 %{buildroot}%{service_home}/acryl.jar
 %{__install} -m644 %SOURCE1 %{buildroot}%{_unitdir}/acryl_node.service
 %{__install} -m644 %SOURCE2 %{buildroot}%{_unitdir}/acryl_node_update.service
-%{__install} -m755 %SOURCE3 %{buildroot}/opt/acryl/get_update_urls.py
-%{__install} -m755 %SOURCE4 %{buildroot}/opt/acryl/node_update.sh
+%{__install} -m755 %SOURCE3 %{buildroot}%{service_home}/get_update_urls.py
+%{__install} -m755 %SOURCE4 %{buildroot}%{service_home}/node_update.sh
 %{__install} -m644 %SOURCE5 %{buildroot}%{_unitdir}/acryl_node_update.timer
-%{__install} -m755 %SOURCE6 %{buildroot}/opt/acryl/acryl_node.conf
+%{__install} -m755 %SOURCE6 %{buildroot}%{service_home}/acryl_node.conf
 
 %files
 %defattr(-, %service_user, %service_group)
-%dir /opt/acryl/
-%attr(0755,%service_user,%service_group) /opt/acryl/acryl.jar
-%attr(0755,%service_user,%service_group) /opt/acryl/get_update_urls.py
-%attr(0755,%service_user,%service_group) /opt/acryl/node_update.sh
-%attr(0644,%service_user,%service_group) /opt/acryl/acryl_node.conf
+%dir %{service_home}
+%attr(0755,%service_user,%service_group) %{service_home}/acryl.jar
+%attr(0755,%service_user,%service_group) %{service_home}/get_update_urls.py
+%attr(0755,%service_user,%service_group) %{service_home}/node_update.sh
+%attr(0644,%service_user,%service_group) %{service_home}/acryl_node.conf
 %defattr(644, -, -)
 %{_unitdir}/acryl_node.service
 %{_unitdir}/acryl_node_update.service
