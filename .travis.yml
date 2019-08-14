@@ -13,7 +13,7 @@ script:
 
 deploy:
   provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
+  api_key: $GITHUB_TOKEN
   file: /$(pwd)/.build/acryl-node-binary*.rpm
   skip_cleanup: true
   draft: true
