@@ -10,7 +10,14 @@ install:
 
 script:
   - docker run -v /$(pwd)/.build:/result acrylplatform/acryl_local_node_rpm
-  - du -h /$(pwd)/.build
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_OAUTH_TOKEN
+  file: /$(pwd)/.build/acryl-node-binary*.rpm
+  skip_cleanup: true
+  draft: true
+
 
 notifications:
   email:
