@@ -14,6 +14,7 @@ script:
 before_deploy:
   - export PKG_FILES=$(ls -d $(pwd)/.build/*.rpm)
   - echo "Found '$PKG_FILES' for release"
+  - ls $(pwd)/.build/
 
 deploy:
   provider: releases
