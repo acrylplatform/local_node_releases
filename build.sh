@@ -3,4 +3,4 @@
 rpmbuild -bb SPECS/acryl_node.spec || exit 1
 
 rm /result/files -rf
-cp -a rpmbuild/RPMS/noarch /result/files
+cp -a /root/rpmbuild/RPMS/noarch /result/files
