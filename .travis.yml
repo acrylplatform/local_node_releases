@@ -13,7 +13,7 @@ script:
 
 before_deploy:
   - export PKG_FILES=$(ls -d $(pwd)/.build/files/*.rpm)
-  - export PACKAGE_NAME_AND_VERSION=$(rpm -qp --queryformat '%{NAME} v%{VERSION}')
+  - export PACKAGE_VERSION=$(rpm -qp --queryformat 'v%{VERSION}' $PKG_FILES)
   - export CHANGELOG=$(rpm -qp --changelog $PKG_FILES)
   - echo "Found '$PKG_FILES' for release"
 
@@ -21,7 +21,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   name: Acryl local node
-  body: "Changelog:\n$CHANGELOG"
+  body: "Changelog: $CHANGELOG"
   file_glob: true
   file: $PKG_FILES
   skip_cleanup: true

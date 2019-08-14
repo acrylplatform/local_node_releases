@@ -5,10 +5,10 @@
 %define service_home /opt/acryl
 %define release_date %(date "+%a %b %e %Y")
 
-Name:       acryl-node-binary
+Name:       acryl-local-node
 Version:    1
 Release:    1%{?dist}
-Summary:    Acryl Node binary and configuration files
+Summary:    Acryl Local Node binary and configuration files
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx
 URL: 	    https://github.com/acrylplatform/
@@ -28,7 +28,7 @@ Source6: acryl_node.conf
 %define __jar_repack 0
 
 %description
-Acryl Node files: excecutable, config files, scripts etc.
+Acryl Local Node files: excecutable, config files, scripts etc.
 
 %prep
 getent group %{service_group} >/dev/null || groupadd -r %{service_group}
