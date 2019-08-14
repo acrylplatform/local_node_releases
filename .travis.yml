@@ -20,7 +20,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  name: $PACKAGE_NAME_AND_VERSION
+  name: Acryl local node
   body: "Changelog:\n$CHANGELOG"
   file_glob: true
   file: $PKG_FILES
