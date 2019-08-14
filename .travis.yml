@@ -9,7 +9,7 @@ install:
   - docker build -t acrylplatform/acryl_local_node_rpm .
 
 script:
-  - docker run -v $(pwd)/.build:/result/files acrylplatform/acryl_local_node_rpm
+  - docker run -v $(pwd)/.build:/result/ acrylplatform/acryl_local_node_rpm
 
 before_deploy:
   - export PKG_FILES=$(ls -d $(pwd)/.build/*.rpm)
