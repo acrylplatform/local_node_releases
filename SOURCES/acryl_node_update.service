@@ -1,0 +1,13 @@
+[Unit]
+Description=Update Acryl node
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/acryl/node_update.sh
+RemainAfterExit=false
+StandardOutput=journal
+SyslogIdentifier=acryl_node
+
+[Install]
+WantedBy=multi-user.target

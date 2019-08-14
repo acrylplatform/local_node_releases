@@ -1,0 +1,12 @@
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+install:
+  - docker build -t acrylplatform/acrylplatform .
+
+script:
+  - docker run acrylplatform/acrylplatform

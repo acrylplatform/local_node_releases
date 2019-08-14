@@ -1,0 +1,19 @@
+[Unit]
+Description=Acryl Node mainnet service
+After=network.target
+
+[Service]
+
+User=acryl_runner
+Group=acryl_runner
+WorkingDirectory=/opt/acryl/
+Environment="_JAVA_OPTIONS=-Xmx3g"
+ExecStart=/usr/bin/java -Djava.net.preferIPv4Stack=true  -jar acryl.jar acryl_node.conf
+StandardError=syslog
+SyslogIdentifier=acryl_node
+Restart=on-failure
+RestartSec=60
+
+
+[Install]
+WantedBy=multi-user.target

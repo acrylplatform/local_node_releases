@@ -1,0 +1,9 @@
+[Unit]
+Description=Run Acryl node update
+
+[Timer]
+OnUnitActiveSec=1h
+Unit=acryl_node_update.service
+
+[Install]
+WantedBy=multi-user.target
