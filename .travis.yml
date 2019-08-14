@@ -12,9 +12,8 @@ script:
   - docker run -v $(pwd)/.build:/result/ acrylplatform/acryl_local_node_rpm
 
 before_deploy:
-  - export PKG_FILES=$(ls -d $(pwd)/.build/*.rpm)
+  - export PKG_FILES=$(ls -d $(pwd)/.build/files/*.rpm)
   - echo "Found '$PKG_FILES' for release"
-  - ls $(pwd)/.build/
 
 deploy:
   provider: releases
