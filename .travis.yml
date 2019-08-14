@@ -6,7 +6,12 @@ branches:
     - master
 
 install:
-  - docker build -t acrylplatform/acrylplatform .
+  - docker build -t acrylplatform/acryl_local_node_rpm .
 
 script:
-  - docker run acrylplatform/acrylplatform
+  - docker run -v .build:/build acrylplatform/acryl_local_node_rpm
+  - du -h .build
+
+notifications:
+  email:
+    - dima@acrylplatform.com
