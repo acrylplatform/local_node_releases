@@ -51,13 +51,11 @@ exit 0
 %{__install} -m755 %SOURCE6 %{buildroot}%{service_home}/acryl_node.conf
 
 %files
-%defattr(-, %service_user, %service_group)
-%dir %{service_home}
+%dir %attr(0744, %service_user,%service_group) %{service_home}
 %attr(0755,%service_user,%service_group) %{service_home}/acryl.jar
 %attr(0755,%service_user,%service_group) %{service_home}/get_update_urls.py
 %attr(0755,%service_user,%service_group) %{service_home}/node_update.sh
 %attr(0644,%service_user,%service_group) %{service_home}/acryl_node.conf
-%defattr(644, -, -)
 %{_unitdir}/acryl_node.service
 %{_unitdir}/acryl_node_update.service
 %{_unitdir}/acryl_node_update.timer
