@@ -30,7 +30,7 @@ Source6: acryl_node.conf
 %description
 Acryl Local Node files: excecutable, config files, scripts etc.
 
-%prep
+%pre
 getent group %{service_group} >/dev/null || groupadd -r %{service_group}
 getent passwd %{service_user} >/dev/null || \
     useradd -r -g %{service_group} -s /sbin/nologin \
@@ -41,7 +41,7 @@ exit 0
 
 %install
 %{__mkdir} -p %{buildroot}%{_unitdir}
-%{__install} -d -o %{service_user} -g %{service_group} %{buildroot}%{service_home}
+%{__mkdir} -p %{buildroot}%{service_home}
 %{__install} -m755 %SOURCE0 %{buildroot}%{service_home}/acryl.jar
 %{__install} -m644 %SOURCE1 %{buildroot}%{_unitdir}/acryl_node.service
 %{__install} -m644 %SOURCE2 %{buildroot}%{_unitdir}/acryl_node_update.service
