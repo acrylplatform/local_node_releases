@@ -17,7 +17,7 @@ script:
 
 before_deploy:
   - export PKG_FILES=$(ls -d $(pwd)/.build/files/*.rpm)
-  - export PACKAGE_VERSION=$(rpm -qp --queryformat '{VERSION}' $PKG_FILES)
+  - export PACKAGE_VERSION=$(rpm -qp --queryformat '%{VERSION}' $PKG_FILES)
   - export CHANGELOG=$(rpm -qp --changelog $PKG_FILES | tr '\n' ' ')
   - echo "Found '$PKG_FILES' for release"
 
