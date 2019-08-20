@@ -1,0 +1,5 @@
+* Вт авг 20 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-3
+- Added nginx config and service file
+- Added CHANGELOG and LICENSE file
+- Added lint for rpm spec file
+- Various spec file fixes
