@@ -30,14 +30,13 @@ Node config files and data located at `/opt/acryl`
 
 ### Node API
 
+Node API with Swagger can be accessed only if nginx web server is running
 ```bash
 systemctl enable acryl_nginx.service
 systemctl start acryl_nginx.service
 ```
 
 Node API is accessed from the URL: `http://YOUR_IP/`
-
-Web server (nginx) config located at `/opt/acryl/acryl_nginx.conf`
  
 
 ## Updating
@@ -47,13 +46,26 @@ systemctl start acryl_node_update.service
 ``` 
 By default update is running every hour (see `acryl_node_update.timer`)
 
+## Configuring
+
+nginx config located at `/opt/acryl/acryl_nginx.conf` you can add vhost config to `/opt/acryl/nginx.conf.d`
+
+Node config located at `/opt/acryl/acryl_node.conf`. Put `local.conf` to `/opt/acryl` if you want to override some settings
+
 ## Troubleshooting
+* Cannot connect to API web server
+
+	Allow connections to 80 port:
+	```bash
+	firewall-cmd --add-service=http --permanent
+	firewall-cmd --reload
+	``` 
 
 * Service status is not active after start
 
     Check log files at `/opt/acryl/acryl/logs` and systemd journal
 
-* nginx always returns 403 code
+* nginx always returns 502 or 403 code
     
     If selinux is enabled and its mode is enforcing allow http network connections:
     ```bash

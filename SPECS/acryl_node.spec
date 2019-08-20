@@ -27,10 +27,8 @@ Source6: acryl_node.conf
 Source7: acryl_nginx.conf
 Source8: acryl_nginx.service
 
-%define __jar_repack 0
-
 %description
-Acryl Local Node files: excecutable, config files, scripts etc.
+Acryl Local Node files: executable, config files, scripts etc.
 
 %pre
 getent group %{service_group} >/dev/null || groupadd -r %{service_group}
@@ -44,6 +42,7 @@ exit 0
 %install
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__mkdir} -p %{buildroot}%{service_home}
+%{__mkdir} -p %{buildroot}%{service_home}/nginx.conf.d
 %{__install} -m755 %SOURCE0 %{buildroot}%{service_home}/acryl.jar
 %{__install} -m644 %SOURCE1 %{buildroot}%{_unitdir}/acryl_node.service
 %{__install} -m644 %SOURCE2 %{buildroot}%{_unitdir}/acryl_node_update.service
@@ -56,6 +55,7 @@ exit 0
 
 %files
 %dir %attr(0744, %service_user,%service_group) %{service_home}
+%dir %attr(0744, %service_user,%service_group) %{service_home}/nginx.conf.d
 %attr(0755,%service_user,%service_group) %{service_home}/acryl.jar
 %attr(0755,%service_user,%service_group) %{service_home}/get_update_urls.py
 %attr(0755,%service_user,%service_group) %{service_home}/node_update.sh
