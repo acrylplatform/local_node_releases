@@ -1,4 +1,4 @@
-# Acryl Local Node releases
+# Acryl Local Node releases [![Build Status](https://travis-ci.com/acrylplatform/local_node_releases.svg?branch=master)](https://travis-ci.com/acrylplatform/local_node_releases)
 This repo is for publishing releases only.
 
 ## Download

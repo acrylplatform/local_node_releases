@@ -3,11 +3,12 @@
 %define service_user acryl_runner
 %define service_group acryl_runner
 %define service_home /opt/acryl
+%define nginx_data_basedir /opt/acryl_nginx
 %define release_date %(date "+%a %b %e %Y")
 
 Name:       acryl-local-node
 Version:    2.0
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    Acryl Local Node binary and configuration files
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx
@@ -43,6 +44,8 @@ exit 0
 %{__mkdir} -p %{buildroot}%{_unitdir}
 %{__mkdir} -p %{buildroot}%{service_home}
 %{__mkdir} -p %{buildroot}%{service_home}/nginx.conf.d
+%{__mkdir} -p %{buildroot}%{_sharedstatedir}/acryl_nginx/tmp/client_body
+%{__mkdir} -p %{buildroot}%{_sharedstatedir}/acryl_nginx/tmp/proxy_temp
 %{__install} -m755 %SOURCE0 %{buildroot}%{service_home}/acryl.jar
 %{__install} -m644 %SOURCE1 %{buildroot}%{_unitdir}/acryl_node.service
 %{__install} -m644 %SOURCE2 %{buildroot}%{_unitdir}/acryl_node_update.service
@@ -56,6 +59,8 @@ exit 0
 %files
 %dir %attr(0744, %service_user,%service_group) %{service_home}
 %dir %attr(0744, %service_user,%service_group) %{service_home}/nginx.conf.d
+%dir %attr(0744, %service_user,%service_group) %{_sharedstatedir}/acryl_nginx/tmp/client_body
+%dir %attr(0744, %service_user,%service_group) %{_sharedstatedir}/acryl_nginx/tmp/proxy_temp
 %attr(0755,%service_user,%service_group) %{service_home}/acryl.jar
 %attr(0755,%service_user,%service_group) %{service_home}/get_update_urls.py
 %attr(0755,%service_user,%service_group) %{service_home}/node_update.sh
@@ -75,21 +80,12 @@ if [ $1 -eq 1 ]; then
 fi
 
 %changelog
+* Wed Aug 21 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-4
+- Added nginx temp directories for runner user
+- Various spec file fixes
+
 * Tue Aug 20 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-3
 - Added nginx config and service file
 - Added CHANGELOG and LICENSE file
 - Added lint for rpm spec file
 - Various spec file fixes
-
-
-
-
-
-
-
-
-
-
-
-
-
