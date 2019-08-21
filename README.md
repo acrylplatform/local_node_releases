@@ -11,6 +11,7 @@ Currently supported OS: CentOS 7
 
 Run 
 ```bash
+yum install epel-release
 yum localinstall acryl-local-node-VERSION.rpm
 ```
 
