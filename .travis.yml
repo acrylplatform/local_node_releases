@@ -18,7 +18,7 @@ script:
 before_deploy:
   - export PKG_FILES=$(ls -d $(pwd)/.build/files/*.rpm)
   - export PACKAGE_VERSION=$(rpm -qp --queryformat '%{VERSION}' $PKG_FILES)
-  - export CHANGELOG=$(rpm -qp --changelog $PKG_FILES | tr '\n' '\n\n')
+  - export CHANGELOG=$(rpm -qp --changelog $PKG_FILES | tr '\n' ' ')
   - echo "Found '$PKG_FILES' for release"
   - git config --local user.name "DPInvaders"
   - git config --local user.email "dima@acrylplatform.com"
@@ -29,7 +29,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   name: Acryl local node $PACKAGE_VERSION
-  body: '"$CHANGELOG"'
+  body: "$CHANGELOG"
   file_glob: true
   file: $PKG_FILES
   skip_cleanup: true
