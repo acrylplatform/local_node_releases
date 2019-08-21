@@ -11,7 +11,7 @@ Version:    2.0
 Release:    4%{?dist}
 Summary:    Acryl Local Node binary and configuration files
 License:    MIT
-Requires:   java-1.8.0-openjdk, python36, nginx
+Requires:   java-1.8.0-openjdk, python36, nginx, jq
 URL:        https://github.com/acrylplatform/
 Vendor:     Acryl
 BuildRequires: systemd, python36

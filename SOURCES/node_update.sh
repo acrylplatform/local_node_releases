@@ -23,5 +23,5 @@ then
 fi
 
 echo "Installing rpm..."
-yum localinstall /tmp/acryl_latest.rpm
+yum -y localinstall /tmp/acryl_latest.rpm
 rm /tmp/acryl_latest.rpm
