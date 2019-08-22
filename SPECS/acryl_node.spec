@@ -8,7 +8,7 @@
 
 Name:       acryl-local-node
 Version:    2.0
-Release:    4%{?dist}
+Release:    5%{?dist}
 Summary:    Acryl Local Node binary and configuration files
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx, jq
@@ -80,6 +80,10 @@ if [ $1 -eq 1 ]; then
 fi
 
 %changelog
+* Thu Aug 22 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-5
+- Changelog file update
+- Release bump
+
 * Wed Aug 21 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-4
 - Added nginx temp directories for runner user
 - Various spec file fixes
