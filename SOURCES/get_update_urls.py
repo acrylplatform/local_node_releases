@@ -10,11 +10,11 @@ DATA_KEY = ""
 
 def main():
     if len(sys.argv) > 2 or len(sys.argv) <= 1:
-        print(f"Usage: {os.path.basename(sys.argv[0])} receiver_address sender_address")
+        print(f"Usage: {os.path.basename(sys.argv[0])} receiver_address")
         sys.exit(1)
 
     receiver_address = sys.argv[1]
-    api_request = urllib.request.urlopen(URL.format(receiver_address=receiver_address, headers={"Accept": "application/json"}))
+    api_request = urllib.request.urlopen(URL.format(receiver_address=receiver_address))
     json_result = api_request.read()
     data_list = json.loads(json_result, encoding='utf-8')
     if not data_list:
@@ -26,6 +26,7 @@ def main():
             latest_update_string = transaction_data["value"]
             break
     else:
+        print("No last_update_data key in transactions list")
         sys.exit(1)
 
     print(latest_update_string)

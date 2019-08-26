@@ -7,7 +7,7 @@ branches:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y rpm
+  - sudo apt-get install -y rpm python3
 
 install:
   - docker build -t acrylplatform/acryl_local_node_rpm .
@@ -33,6 +33,9 @@ deploy:
   file_glob: true
   file: $PKG_FILES
   skip_cleanup: true
+
+after_deploy:
+  - ./acryl_blockchain_publish.sh
 
 
 notifications:

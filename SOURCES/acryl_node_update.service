@@ -3,11 +3,11 @@ Description=Update Acryl node
 After=network.target
 
 [Service]
-Type=oneshot
-ExecStart=/opt/acryl/node_update.sh
+Type=simple
+ExecStart=/opt/acryl/node_update.sh 3EVSrhTf5NoHfFKFGuNzFUbWuMypaqiTMmf
 RemainAfterExit=false
 StandardOutput=journal
-SyslogIdentifier=acryl_node
+SyslogIdentifier=acryl_node_update
 
 [Install]
 WantedBy=multi-user.target

@@ -8,7 +8,7 @@
 
 Name:       acryl-local-node
 Version:    2.0
-Release:    5%{?dist}
+Release:    6%{?dist}
 Summary:    Acryl Local Node binary and configuration files
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx, jq
@@ -80,6 +80,11 @@ if [ $1 -eq 1 ]; then
 fi
 
 %changelog
+* Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-6
+- Added release data blockchain publishing
+- Changed update data address
+- Fixed update service
+
 * Thu Aug 22 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-5
 - Changelog file update
 - Release bump
