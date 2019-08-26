@@ -1,8 +1,13 @@
+* Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-10
+- Set correct package name in update script
+
 * Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-7
 - Release bump
 
 * Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-6
-- Fixed update service, changed update data address
+- Added release data blockchain publishing
+- Changed update data address
+- Fixed update service
 
 * Thu Aug 22 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-5
 - Changelog file update

@@ -11,7 +11,7 @@ UPDATE_DATA=($(/usr/bin/python3.6 /opt/acryl/get_update_urls.py $ADDRESS | jq -r
 RPM_URL=${UPDATE_DATA[0]}
 RPM_SHA256_CHECKSUM=${UPDATE_DATA[1]}
 echo "Checking versions and checksums..."
-PACKAGE_CHECKSUM=$(yumdb get checksum_data acryl-node-binary | tr " " '\n' | tail -n 1)
+PACKAGE_CHECKSUM=$(yumdb get checksum_data acryl-local-node | tr " " '\n' | tail -n 1)
 
 if [[ ${RPM_SHA256_CHECKSUM} == ${PACKAGE_CHECKSUM} ]];
 then
