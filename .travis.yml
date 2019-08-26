@@ -14,7 +14,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y curl rpm gcc python3.6 python3.6-dev
   - curl https://bootstrap.pypa.io/get-pip.py | sudo python3.6
-  - python3.6 -m pip install pyacryl
+  - sudo python3.6 -m pip install pyacryl
 
 install:
   - docker build -t acrylplatform/acryl_local_node_rpm .
