@@ -5,15 +5,22 @@ branches:
   only:
     - master
 
+
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y rpm python3
+  - sudo apt-get install -y rpm python3.6
+addons:
+  apt:
+    sources:
+    - deadsnakes
 
 install:
   - docker build -t acrylplatform/acryl_local_node_rpm .
 
+
 script:
   - docker run -v $(pwd)/.build:/result/ acrylplatform/acryl_local_node_rpm
+
 
 before_deploy:
   - export PKG_FILES=$(ls -d $(pwd)/.build/files/*.rpm)
@@ -23,7 +30,8 @@ before_deploy:
   - git config --local user.name "DPInvaders"
   - git config --local user.email "dima@acrylplatform.com"
   - export TRAVIS_TAG=${TRAVIS_TAG:-$PACKAGE_VERSION}
-  - git tag $TRAVIS_TAG
+  - git tag -fa $TRAVIS_TAG
+
 
 deploy:
   provider: releases
@@ -34,8 +42,9 @@ deploy:
   file: $PKG_FILES
   skip_cleanup: true
 
+
 after_deploy:
-  - ./acryl_blockchain_publish.sh
+  - ./acryl_blockchain_publish.sh $PKG_FILES
 
 
 notifications:
