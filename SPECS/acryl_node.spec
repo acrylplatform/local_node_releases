@@ -8,7 +8,7 @@
 
 Name:       acryl-local-node
 Version:    2.0
-Release:    8%{?dist}
+Release:    9%{?dist}
 Summary:    Acryl Local Node binary and configuration files
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx, jq
