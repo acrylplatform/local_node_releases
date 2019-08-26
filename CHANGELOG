@@ -1,3 +1,6 @@
+* Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-7
+- Release bump
+
 * Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-6
 - Fixed update service, changed update data address
 
