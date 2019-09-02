@@ -8,7 +8,7 @@
 
 Name:       acryl-local-node-testnet
 Version:    1.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Acryl Local Node binary and configuration files for testnet
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx, jq

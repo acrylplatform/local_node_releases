@@ -8,7 +8,7 @@ User=acryl_runner
 Group=acryl_runner
 WorkingDirectory=/opt/acryl/
 Environment="_JAVA_OPTIONS=-Xmx3g"
-ExecStart=/usr/bin/java -Djava.net.preferIPv4Stack=true  -jar acryl_testnet.jar acryl_testnet_node.conf
+ExecStart=/usr/bin/java -Djava.net.preferIPv4Stack=true  -jar acryl_testnet.jar acryl_node_testnet.conf
 StandardError=syslog
 SyslogIdentifier=acryl_node_testnet
 Restart=on-failure
