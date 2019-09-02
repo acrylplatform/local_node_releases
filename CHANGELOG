@@ -1,27 +1,2 @@
-* Tue Aug 27 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-11
-- Removed travis update data blockchain publication
-
-* Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-10
-- Set correct package name in update script
-
-* Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-7
-- Release bump
-
-* Mon Aug 26 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-6
-- Added release data blockchain publishing
-- Changed update data address
-- Fixed update service
-
-* Thu Aug 22 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-5
-- Changelog file update
-- Release bump
-
-* Wed Aug 21 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-4
-- Added nginx temp directories for runner user
-- Various spec file fixes
-
-* Tue Aug 20 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-3
-- Added nginx config and service file
-- Added CHANGELOG and LICENSE file
-- Added lint for rpm spec file
-- Various spec file fixes
+* Mon Sep 2 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0-1
+- First testnet node

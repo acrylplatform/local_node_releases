@@ -1,10 +1,10 @@
 [Unit]
-Description=Update Acryl node
+Description=Update Acryl node testnet
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/acryl/node_update.sh 3EVSrhTf5NoHfFKFGuNzFUbWuMypaqiTMmf
+ExecStart=/opt/acryl/node_update_testnet.sh test_net_address
 RemainAfterExit=false
 StandardOutput=journal
 SyslogIdentifier=acryl_node_update
