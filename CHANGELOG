@@ -1,2 +1,6 @@
+* Mon Oct 7 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0.0-3
+- New jar version
+- Updated config: new fetures, feature approval and activation period, matcher
+
 * Mon Sep 2 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0-1
 - First testnet node

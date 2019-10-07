@@ -7,8 +7,8 @@
 %define release_date %(date "+%a %b %e %Y")
 
 Name:       acryl-local-node-testnet
-Version:    1.0
-Release:    2%{?dist}
+Version:    1.0.0
+Release:    3%{?dist}
 Summary:    Acryl Local Node binary and configuration files for testnet
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx, jq
@@ -80,6 +80,10 @@ if [ $1 -eq 1 ]; then
 fi
 
 %changelog
+* Mon Oct 7 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0.0-3
+- New jar version
+- Updated config: new fetures, feature approval and activation period, matcher
+
 * Mon Sep 2 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0-1
 - First testnet node
 
