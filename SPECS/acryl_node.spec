@@ -8,7 +8,7 @@
 
 Name:       acryl-local-node-testnet
 Version:    1.0.0
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    Acryl Local Node binary and configuration files for testnet
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx, jq
@@ -79,7 +79,17 @@ if [ $1 -eq 1 ]; then
     /usr/bin/systemctl preset acryl_nginx_testnet.service >/dev/null 2>&1 ||:
 fi
 
+KEYFILE=/opt/acryl/nginx.conf.d/node_testnet.key
+CERTFILE=/opt/acryl/nginx.conf.d/node_testnet.crt
+if [[ ! -f "$KEYFILE" && ! -f "$CERTFILE" ]]; then
+    openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=RU/ST=Nsk/L=Novosibirsk/O=Acryl/CN=localhost" -keyout $KEYFILE  -out $CERTFILE
+fi
+
 %changelog
+* Tue Oct 8 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0.0-4
+- Fixed config for https host: http to https redirect, cert file creation
+- CORS disabled in node API server config
+
 * Mon Oct 7 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0.0-3
 - New jar version
 - Updated config: new fetures, feature approval and activation period, matcher

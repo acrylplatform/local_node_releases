@@ -54,6 +54,14 @@ nginx config located at `/opt/acryl/acryl_nginx.conf` you can add vhost config t
 Node config located at `/opt/acryl/acryl_node.conf`. Put `local.conf` to `/opt/acryl` if you want to override some settings
 
 ## Troubleshooting
+* Cannot connect to node
+
+	Allow connections to 6860 port:
+	```bash
+	firewall-cmd --zone=public --add-port=6860/tcp --permanent
+	firewall-cmd --reload
+	``` 
+
 * Cannot connect to API web server
 
 	Allow connections to 80 port:

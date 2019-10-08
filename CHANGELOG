@@ -1,3 +1,7 @@
+* Mon Oct 8 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0.0-4
+- Fixed config for https host: http to https redirect, cert file creation
+- CORS disabled in node API server config
+
 * Mon Oct 7 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 1.0.0-3
 - New jar version
 - Updated config: new fetures, feature approval and activation period, matcher
