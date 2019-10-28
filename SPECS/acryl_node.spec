@@ -7,8 +7,8 @@
 %define release_date %(date "+%a %b %e %Y")
 
 Name:       acryl-local-node
-Version:    2.0
-Release:    11%{?dist}
+Version:    3.0
+Release:    1%{?dist}
 Summary:    Acryl Local Node binary and configuration files
 License:    MIT
 Requires:   java-1.8.0-openjdk, python36, nginx, jq
@@ -80,6 +80,9 @@ if [ $1 -eq 1 ]; then
 fi
 
 %changelog
+* Mon Oct 28 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 3.0-1
+- New jar version (1.0.1-acrylplatform)
+
 * Tue Aug 27 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 2.0-11
 - Removed travis update data blockchain publication
 
