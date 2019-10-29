@@ -7,7 +7,7 @@
 %define release_date %(date "+%a %b %e %Y")
 
 Name:       acryl-local-node
-Version:    3.0
+Version:    3.1
 Release:    1%{?dist}
 Summary:    Acryl Local Node binary and configuration files
 License:    MIT
@@ -80,6 +80,9 @@ if [ $1 -eq 1 ]; then
 fi
 
 %changelog
+* Tue Oct 29 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 3.1-1
+- Disabled wallet file in node config
+
 * Mon Oct 28 2019 Dmitriy Peregudov <dima@acrylplatform.com> - 3.0-1
 - New jar version (1.0.1-acrylplatform)
 
